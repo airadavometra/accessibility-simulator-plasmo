@@ -68,3 +68,27 @@
   background-color: #80808090;
   backdrop-filter: blur(30px);
 }
+html.protanopia {
+  filter: url(#protanopia);
+}
+html.deuteranopia {
+  filter: url(#deuteranopia);
+}
+html.tritanopia {
+  filter: url(#tritanopia);
+}
+html.achromatopsia {
+  filter: url(#achromatopsia);
+}
+html.font16 {
+  font-size: 16px;
+}
+html.font24 {
+  font-size: 24px;
+}
+html.font32 {
+  font-size: 32px;
+}
+html.font48 {
+  font-size: 48px;
+}
