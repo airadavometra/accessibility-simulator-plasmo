@@ -1,0 +1,70 @@
+#filter-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000000;
+}
+#filter-layer.blurred1 {
+  animation: pulse1 5s infinite ease-in-out;
+}
+@keyframes pulse1 {
+  0% {
+    backdrop-filter: blur(2px);
+  }
+  25% {
+    backdrop-filter: blur(3px);
+  }
+  50% {
+    backdrop-filter: blur(2px);
+  }
+  75% {
+    backdrop-filter: blur(1px);
+  }
+  100% {
+    backdrop-filter: blur(2px);
+  }
+}
+#filter-layer.blurred3 {
+  animation: pulse3 5s infinite ease-in-out;
+}
+@keyframes pulse3 {
+  0% {
+    backdrop-filter: blur(4px);
+  }
+  25% {
+    backdrop-filter: blur(5px);
+  }
+  50% {
+    backdrop-filter: blur(4px);
+  }
+  75% {
+    backdrop-filter: blur(3px);
+  }
+  100% {
+    backdrop-filter: blur(4px);
+  }
+}
+#filter-layer.blurred6 {
+  animation: pulse6 5s infinite ease-in-out;
+}
+@keyframes pulse4 {
+  0% {
+    backdrop-filter: blur(6px);
+  }
+  25% {
+    backdrop-filter: blur(7px);
+  }
+  50% {
+    backdrop-filter: blur(6px);
+  }
+  75% {
+    backdrop-filter: blur(5px);
+  }
+  100% {
+    backdrop-filter: blur(6px);
+  }
+}
+#filter-layer.blindness {
+  background-color: #80808090;
+  backdrop-filter: blur(30px);
+}
