@@ -19,12 +19,20 @@ function IndexPopup() {
     "filter",
     "off"
   )
-  const [selectedDiopter, setSelectedDiopter] = useState<string>("0")
-  const [selectedFontSize, setSelectedFontSize] = useState<string>("0")
-  const [selectedBlindMode, setSelectedBlindMode] =
-    useState<string>("blindness")
+  const [selectedDiopter, setSelectedDiopter] = useStorage<string>(
+    "diopter",
+    "0"
+  )
+  const [selectedFontSize, setSelectedFontSize] = useStorage<string>(
+    "fontSize",
+    "0"
+  )
+  const [selectedBlindMode, setSelectedBlindMode] = useStorage<string>(
+    "blind",
+    "blindness"
+  )
   const [selectedColorBlindMode, setSelectedColorBlindMode] =
-    useState<string>("achromatopsia")
+    useStorage<string>("colorBlind", "achromatopsia")
 
   useEffect(() => {
     switch (selectedFilter) {
