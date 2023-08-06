@@ -1,35 +1,48 @@
 import { useEffect, useState } from "react"
 
+import { useStorage } from "@plasmohq/storage/hook"
+
 import "./style.css"
 
 import { BlindnessSettings } from "~components/BlindnessSettings"
 import { ColorBlindnessSettings } from "~components/ColorBlindnessSettings"
 import { MyopiaSettings } from "~components/MyopiaSettings"
+import { applyBlindness } from "~contents/applyBlindness"
+import { applyColorBlindness } from "~contents/applyColorBlindness"
+import { applyMyopia } from "~contents/applyMyopia"
+import { clearFilters } from "~contents/clearFilters"
 
-type Filters = "myopia" | "blindness" | "colorBlindness"
+type Filters = "myopia" | "blindness" | "colorBlindness" | "off"
 
 function IndexPopup() {
-  const [selectedFilter, setSelectedFilter] = useState<Filters>()
+  const [selectedFilter, setSelectedFilter] = useStorage<string>(
+    "filter",
+    "off"
+  )
   const [selectedDiopter, setSelectedDiopter] = useState<string>("0")
   const [selectedFontSize, setSelectedFontSize] = useState<string>("0")
   const [selectedBlindMode, setSelectedBlindMode] =
     useState<string>("blindness")
   const [selectedColorBlindMode, setSelectedColorBlindMode] =
-    useState<string>("protanopia")
+    useState<string>("achromatopsia")
 
   useEffect(() => {
     switch (selectedFilter) {
       case "myopia": {
-        //apply filter
+        applyMyopia(selectedDiopter, selectedFontSize)
+        break
       }
       case "blindness": {
-        //apply filter
+        applyBlindness(selectedBlindMode)
+        break
       }
       case "colorBlindness": {
-        //apply filter
+        applyColorBlindness(selectedColorBlindMode)
+        break
       }
-      default: {
-        //clear filters
+      case "off": {
+        clearFilters()
+        break
       }
     }
   }, [
@@ -55,7 +68,7 @@ function IndexPopup() {
           onChange={(e) => {
             setSelectedFilter(e.target.value as Filters)
           }}>
-          <option value="">Off</option>
+          <option value="off">Off</option>
           <option value="myopia">Myopia</option>
           <option value="blindness">Blindness</option>
           <option value="colorBlindness">Color blindness</option>

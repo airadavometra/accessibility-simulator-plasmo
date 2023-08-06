@@ -4,6 +4,9 @@
   pointer-events: none;
   z-index: 1000000;
 }
+#filter-layer.blurred0 {
+  animation: unset;
+}
 #filter-layer.blurred1 {
   animation: pulse1 5s infinite ease-in-out;
 }
@@ -24,10 +27,10 @@
     backdrop-filter: blur(2px);
   }
 }
-#filter-layer.blurred3 {
-  animation: pulse3 5s infinite ease-in-out;
+#filter-layer.blurred2 {
+  animation: pulse2 5s infinite ease-in-out;
 }
-@keyframes pulse3 {
+@keyframes pulse2 {
   0% {
     backdrop-filter: blur(4px);
   }
@@ -44,10 +47,10 @@
     backdrop-filter: blur(4px);
   }
 }
-#filter-layer.blurred6 {
-  animation: pulse6 5s infinite ease-in-out;
+#filter-layer.blurred3 {
+  animation: pulse3 5s infinite ease-in-out;
 }
-@keyframes pulse4 {
+@keyframes pulse3 {
   0% {
     backdrop-filter: blur(6px);
   }
@@ -80,15 +83,15 @@ html.tritanopia {
 html.achromatopsia {
   filter: url(#achromatopsia);
 }
-html.font16 {
+html.font0 {
   font-size: 16px;
 }
-html.font24 {
+html.font1 {
   font-size: 24px;
 }
-html.font32 {
+html.font2 {
   font-size: 32px;
 }
-html.font48 {
+html.font3 {
   font-size: 48px;
 }

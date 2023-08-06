@@ -12,6 +12,23 @@ export const ColorBlindnessSettings = ({
       <div className="w-full flex items-baseline gap-2">
         <input
           type="radio"
+          id="option3"
+          value="achromatopsia"
+          name="blind"
+          checked={selectedColorBlindnessOption === "achromatopsia"}
+          onChange={(e) => {
+            setSelectedColorBlindnessOption(e.target.value)
+          }}
+        />
+        <label
+          htmlFor="option3"
+          className="text-base font-normal whitespace-nowrap">
+          Achromatopsia
+        </label>
+      </div>
+      <div className="w-full flex items-baseline gap-2">
+        <input
+          type="radio"
           id="option0"
           value="protanopia"
           name="blind"
@@ -58,23 +75,6 @@ export const ColorBlindnessSettings = ({
           htmlFor="option2"
           className="text-base font-normal whitespace-nowrap">
           Tritanopia
-        </label>
-      </div>
-      <div className="w-full flex items-baseline gap-2">
-        <input
-          type="radio"
-          id="option3"
-          value="achromatopsia"
-          name="blind"
-          checked={selectedColorBlindnessOption === "achromatopsia"}
-          onChange={(e) => {
-            setSelectedColorBlindnessOption(e.target.value)
-          }}
-        />
-        <label
-          htmlFor="option3"
-          className="text-base font-normal whitespace-nowrap">
-          Achromatopsia
         </label>
       </div>
     </div>
