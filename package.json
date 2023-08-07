@@ -1,8 +1,8 @@
 {
-  "name": "accessibility-simulator-plamso",
-  "displayName": "Accessibility simulator plamso",
-  "version": "0.0.1",
-  "description": "A basic Plasmo extension.",
+  "name": "accessibility-simulator",
+  "displayName": "Simulator of visual impairments",
+  "version": "1.0.0",
+  "description": "Simulator of visual impairments. Helps to check if your website is accessible and understand how you can improve users experience.",
   "author": "Daria Artemova",
   "scripts": {
     "dev": "plasmo dev",

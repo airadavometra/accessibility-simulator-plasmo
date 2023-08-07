@@ -67,7 +67,7 @@ function IndexPopup() {
         <label
           htmlFor="filter-selector"
           className="block text-xl font-normal whitespace-nowrap">
-          Select a visual imparement:
+          Select a visual impairment:
         </label>
         <select
           name="filter-selector"
