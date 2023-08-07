@@ -6,10 +6,12 @@ export const config: PlasmoCSConfig = {
 
 export const applyBlindness = async (blindMode: string) => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+  const glaucomaImg = chrome.runtime.getURL("assets/glaucoma.png")
+  const diabetImg = chrome.runtime.getURL("assets/diabet.png")
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: (blindMode) => {
+    func: (blindMode, glaucomaImg, diabetImg) => {
       const html = document.getElementsByTagName("html")[0]
       html.classList.remove(
         "font0",
@@ -23,6 +25,10 @@ export const applyBlindness = async (blindMode: string) => {
       )
 
       const filter = document.getElementById("filter-layer")
+
+      filter.style.setProperty("--glaucoma-url", `url(${glaucomaImg})`)
+      filter.style.setProperty("--diabet-url", `url(${diabetImg})`)
+
       filter.classList.remove(
         "blurred0",
         "blurred1",
@@ -34,6 +40,6 @@ export const applyBlindness = async (blindMode: string) => {
       )
       filter.classList.add(blindMode)
     },
-    args: [blindMode]
+    args: [blindMode, glaucomaImg, diabetImg]
   })
 }

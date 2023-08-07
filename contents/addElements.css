@@ -71,6 +71,20 @@
   background-color: #80808090;
   backdrop-filter: blur(30px);
 }
+#filter-layer.diabetic {
+  background-image: var(--diabet-url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+}
+#filter-layer.glaucoma {
+  background-image: var(--glaucoma-url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+}
 html.protanopia {
   filter: url(#protanopia);
 }
