@@ -1,10 +1,4 @@
-import type { PlasmoCSConfig } from "plasmo"
-
 import "./addElements.css"
-
-export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"]
-}
 
 window.addEventListener("load", () => {
   const divElement = document.createElement("div")

@@ -2,7 +2,7 @@
   "name": "accessibility-simulator",
   "displayName": "Simulator of visual impairments",
   "version": "1.0.0",
-  "description": "Simulator of visual impairments. Helps to check if your website is accessible and understand how you can improve users experience.",
+  "description": "Helps to check if your website is accessible and understand how you can improve experience for your users.",
   "author": "Daria Artemova",
   "scripts": {
     "dev": "plasmo dev",
@@ -28,11 +28,8 @@
     "typescript": "5.1.6"
   },
   "manifest": {
-    "host_permissions": [
-      "https://*/*"
-    ],
     "permissions": [
-      "tabs",
+      "activeTab",
       "scripting"
     ],
     "web_accessible_resources": [
@@ -41,7 +38,7 @@
           "assets/*.png"
         ],
         "matches": [
-          "https://*/*"
+          "<all_urls>"
         ]
       }
     ]

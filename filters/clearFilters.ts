@@ -1,9 +1,3 @@
-import type { PlasmoCSConfig } from "plasmo"
-
-export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"]
-}
-
 export const clearFilters = async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
 

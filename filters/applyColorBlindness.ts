@@ -1,17 +1,9 @@
-import type { PlasmoCSConfig } from "plasmo"
-
-export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"]
-}
-
-export const applyBlindness = async (blindMode: string) => {
+export const applyColorBlindness = async (colorBlindMode: string) => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
-  const glaucomaImg = chrome.runtime.getURL("assets/glaucoma.png")
-  const diabetImg = chrome.runtime.getURL("assets/diabet.png")
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: (blindMode, glaucomaImg, diabetImg) => {
+    func: (colorBlindMode) => {
       const html = document.getElementsByTagName("html")[0]
       html.classList.remove(
         "font0",
@@ -23,12 +15,9 @@ export const applyBlindness = async (blindMode: string) => {
         "tritanopia",
         "achromatopsia"
       )
+      html.classList.add(colorBlindMode)
 
       const filter = document.getElementById("filter-layer")
-
-      filter.style.setProperty("--glaucoma-url", `url(${glaucomaImg})`)
-      filter.style.setProperty("--diabet-url", `url(${diabetImg})`)
-
       filter.classList.remove(
         "blurred0",
         "blurred1",
@@ -38,8 +27,7 @@ export const applyBlindness = async (blindMode: string) => {
         "diabetic",
         "glaucoma"
       )
-      filter.classList.add(blindMode)
     },
-    args: [blindMode, glaucomaImg, diabetImg]
+    args: [colorBlindMode]
   })
 }

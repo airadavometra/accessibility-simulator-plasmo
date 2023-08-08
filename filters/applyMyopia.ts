@@ -1,15 +1,9 @@
-import type { PlasmoCSConfig } from "plasmo"
-
-export const config: PlasmoCSConfig = {
-  matches: ["<all_urls>"]
-}
-
-export const applyColorBlindness = async (colorBlindMode: string) => {
+export const applyMyopia = async (diopter: string, fontSize: string) => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
 
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
-    func: (colorBlindMode) => {
+    func: (diopter, fontSize) => {
       const html = document.getElementsByTagName("html")[0]
       html.classList.remove(
         "font0",
@@ -21,7 +15,7 @@ export const applyColorBlindness = async (colorBlindMode: string) => {
         "tritanopia",
         "achromatopsia"
       )
-      html.classList.add(colorBlindMode)
+      html.classList.add(`font${fontSize}`)
 
       const filter = document.getElementById("filter-layer")
       filter.classList.remove(
@@ -33,7 +27,8 @@ export const applyColorBlindness = async (colorBlindMode: string) => {
         "diabetic",
         "glaucoma"
       )
+      filter.classList.add(`blurred${diopter}`)
     },
-    args: [colorBlindMode]
+    args: [diopter, fontSize]
   })
 }
